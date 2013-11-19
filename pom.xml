@@ -1,78 +1,141 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>de.mytoys.maven.plugins</groupId>
-  <artifactId>debug-maven-plugin</artifactId>
-  <packaging>maven-plugin</packaging>
-  <version>1.7-SNAPSHOT</version>
-  <name>Debug-Plugin</name>
-  <description>Plugin helping developers to debug dependency conflicts</description>
 
-  <developers>
-    <developer>
-      <id>lenni</id>
-      <name>Leonard Ehrenfried</name>
-      <email>leonard.ehrenfried@web.de</email>
-    </developer>
-  </developers>
+  <groupId>com.pb.selenium</groupId>
+  <artifactId>MavenExponareRestPublic</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>MavenExponareRestPublic</name>
+  <url>http://maven.apache.org</url>
 
   <properties>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-  <scm>
-    <connection>scm:git:git://github.com/lenniboy/debug-maven-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:lenniboy/debug-maven-plugin.git</developerConnection>
-    <url>https://github.com/lenniboy/debug-maven-plugin</url>
-  </scm>
-
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
 
   <dependencies>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>2.0</version>
+  <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.9</version>
+      <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-dependency-plugin</artifactId>
-      <version>2.2</version>
+	<dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>2.37.0</version>
     </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>r09</version>
+	<dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.5.1</version>
+      <scope>test</scope>
     </dependency>
+	<dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.8</version>
+    </dependency>
+	<dependency>
+		<groupId>com.opera</groupId>
+		<artifactId>operadriver</artifactId>
+		<version>0.11</version>
+		<exclusions>
+          <exclusion>
+              <groupId>org.seleniumhq.selenium</groupId>
+              <artifactId>selenium-remote-driver</artifactId>
+          </exclusion>
+     </exclusions>
+	</dependency>
+	<dependency>
+		<groupId>dom4j</groupId>
+		<artifactId>dom4j</artifactId>
+		<version>1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>3.6</version>
+	</dependency>
+    <dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml</artifactId>
+		<version>3.6</version>
+	</dependency>                       
+  	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml-schemas</artifactId>
+		<version>3.6</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.xmlbeans</groupId>
+		<artifactId>xmlbeans</artifactId>
+		<version>2.3.0</version>
+	</dependency>
+	<dependency>
+   		<groupId>net.sourceforge.jexcelapi</groupId>
+   		<artifactId>jxl</artifactId>
+   		<version>2.6.10</version>
+	</dependency>
+    <dependency>
+ 	  <groupId>org.sikuli</groupId>
+      <artifactId>script</artifactId>
+      <version>1.0rc3</version>
+    </dependency>
+	<dependency>
+        <groupId>org.sikuli</groupId>
+        <artifactId>sikuli-api</artifactId>
+        <version>1.0.2</version>
+	</dependency>
+	<dependency>
+        <groupId>org.sikuli</groupId>
+        <artifactId>sikuli-webdriver</artifactId>
+        <version>1.0.1</version>S
+	</dependency>
+	
   </dependencies>
+  
+  <pluginRepositories>
+        <pluginRepository>
+            <id>testng-xslt-plugin</id>
+            <url>http://www.cosminaru.ro/maven/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>C:/Users/AK003SI/MyWorkspace/Exponare/TestNG.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.testng.xslt</groupId>
+                <artifactId>testng-xslt-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <!--Setting the output directory-->
+                    <!--<outputDir>${project.basedir}/target/site/${pom.artifactId}</outputDir>-->
+                    <!--Setting the testNgXslt.showRuntimeTotals flag-->
+                    <showRuntimeTotals>true</showRuntimeTotals>
+                    <!--Setting the testNgXslt.cssFile parameter. This should be relative to the '${basedir}/target/site/testng-xslt' directory-->
+                    <sortTestCaseLinks>true</sortTestCaseLinks>
+                    <testDetailsFilter>FAIL,PASS,SKIP,CONF</testDetailsFilter>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>
